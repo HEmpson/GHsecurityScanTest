@@ -30,6 +30,7 @@ const getData = (req, res) => {
 }
 
 const addPost =  (req, res) => {
+    
     const data = req.body;
     const newData = {
         temperature: data.temperature,
@@ -38,6 +39,10 @@ const addPost =  (req, res) => {
     } 
     projectData['latest'] = newData;
     res.send(projectData);
+
+
+    let user = req.body;
+    connection.query("SELECT * FROM table WHERE userid = " + user);
 }
 
 
